@@ -18,9 +18,3 @@ terraform {
 
 }
 
-  module "dynamodb_table" {
-    source   = "terraform-aws-modules/dynamodb-table/aws"
-
-    name     = "tf-terraform-hello-world-state-v1"
-    hash_key = "LockID"
-}
