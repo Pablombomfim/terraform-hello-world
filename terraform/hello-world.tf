@@ -105,7 +105,8 @@ resource "aws_instance" "hello-instance" {
 
 #DynaboDb
 module "dynamodb_table" {
-  source   = "terraform-aws-modules/dynamodb-table/aws"
+  source   = "../../"
+  
   name     = "tf-terraform-hello-world-state-v1"
   hash_key = "LockID"
 }
