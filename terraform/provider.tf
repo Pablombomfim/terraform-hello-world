@@ -12,9 +12,17 @@ terraform {
 
 }
 
-provider "aws" {
-  region                   = "us-east-1"
-  shared_config_files      = [".aws/config"]
-  shared_credentials_files = [".aws/credentials"]
-  profile                  = "fiap-iac"
+#S3
+  backend "s3" {
+    bucket         = "tf-terraform-hello-world-state-pablinhos"
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
+  }
+
+  
+module "dynamodb_table" {
+  source   = "terraform-aws-modules/dynamodb-table/aws"
+
+  name     = "tf-terraform-hello-world-state-v1"
+  hash_key = "LockID"
 }
