@@ -105,9 +105,9 @@ resource "aws_instance" "hello-instance" {
 
 #DynaboDb
 resource "aws_dynamodb_table" "this" {
-    
+
   name     = "tf-terraform-hello-world-state-v1"
-  hash_key = "LockID"
+  hash_key = "ID"
 }
 
 #bucketS3
