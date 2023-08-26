@@ -10,11 +10,5 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket         = "tf-terraform-hello-world-state-pablinhos"
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-  }
-
 }
 
