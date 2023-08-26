@@ -104,10 +104,23 @@ resource "aws_instance" "hello-instance" {
 }
 
 #DynaboDb
-resource "aws_dynamodb_table" "tf-terraform-hello-world-state-v1" {
+module "dynamodb_table" {
+  source   = "terraform-aws-modules/dynamodb-table/aws"
 
   name     = "tf-terraform-hello-world-state-v1"
   hash_key = "LockID"
+
+  attributes = [
+    {
+      name = "LockID"
+      type = "N"
+    }
+  ]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "staging"
+  }
 }
 
 #bucketS3
