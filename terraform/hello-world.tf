@@ -126,4 +126,5 @@ module "dynamodb_table" {
 #bucketS3
 resource "aws_s3_bucket" "tf-terraform-hello-world-state-pablinhos" {
   bucket = "tf-terraform-hello-world-state-pablinhos"
+  #carlinhosmaia
 }
